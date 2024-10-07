@@ -1,0 +1,688 @@
+/* ================================================
+   Global Styles
+   ================================================ */
+
+body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #182026;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", Icons16, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #21618C;
+  /* Brand color */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.8em;
+  /* Reduced size */
+  margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+}
+
+/* Always show the scrollbar to prevent layout shift */
+html {
+  overflow-y: scroll;
+}
+
+/* ================================================
+     Layout Containers
+     ================================================ */
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #21618C;
+  padding: 1em;
+  text-align: left;
+  font-size: 1em;
+  /* Reduced size */
+  font-weight: bold;
+  margin-top: -0.6em;
+  margin-bottom: 2em;
+}
+
+.content {
+  flex: 1;
+  padding: 2em;
+  background-color: #d8d7d7;
+}
+
+/* ================================================
+     Sidebar Navigation
+     ================================================ */
+
+.sidebar {
+  background-color: #21618C;
+  /* Brand color */
+  color: #fff;
+  width: 250px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  font-size: 1.2em;
+  /* Adjusted font size */
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================
+   Image Containers and Links
+   ================================================ */
+
+.image-container {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 600px;
+  margin: 0.2em auto;
+  background-color: #fff;
+  border-radius: 5%;
+}
+
+/* Container for the image links */
+.image-links,
+.image-links-workflows,
+.image-links-data-catalog,
+.image-links-tools,
+.link-video-tutorials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5em;
+  margin-bottom: 2em;
+}
+
+/* Style each item (image + caption) */
+.image-links a,
+.image-links-workflows a,
+.image-links-data-catalog a,
+.image-links-tools a,
+.link-video-tutorials a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210px;
+  height: 120px;
+  padding: 1em;
+  background-color: #fffde7;
+  /* Light background */
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #182026;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Added box shadow */
+  cursor: pointer;
+  /* Ensures the cursor indicates interactivity */
+}
+
+.image-links a:hover,
+.image-links-workflows a:hover,
+.image-links-data-catalog a:hover,
+.image-links-tools a:hover,
+.link-video-tutorials a:hover {
+  background-color: #fff9c4;
+  /* Slightly darker on hover */
+  border-color: #21618C;
+  transform: scale(1.05);
+  /* Slightly enlarge the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow on hover */
+}
+
+.image-links a img,
+.image-links-workflows a img,
+.image-links-data-catalog a img,
+.image-links-tools a img,
+.link-video-tutorials a img {
+  height: 5em;
+  width: auto;
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s;
+  /* Smooth image scaling */
+}
+
+.image-links a:hover img,
+.image-links-workflows a:hover img,
+.image-links-data-catalog a:hover img,
+.image-links-tools a:hover img,
+.link-video-tutorials a:hover img {
+  transform: scale(1.17);
+  /* Slightly enlarge the image on hover */
+}
+
+.image-links a p,
+.image-links-workflows a p,
+.image-links-data-catalog a p,
+.image-links-tools a p,
+.link-video-tutorials a p {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 0.5em;
+}
+
+/* Focus styles for accessibility */
+.image-links a:focus,
+.image-links-workflows a:focus,
+.image-links-data-catalog a:focus,
+.link-video-tutorials a:focus {
+  outline: 5px dashed #21618C;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(33, 97, 140, 0.2);
+}
+
+/* ================================================
+   Styling for .link-video-tutorials (Text-Only Links)
+   ================================================ */
+
+/* Container for the link-video-tutorials */
+.link-video-tutorials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5em;
+  margin-bottom: 2em;
+}
+
+/* Style each item (text-only box) */
+.link-video-tutorials a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center content vertically */
+  align-items: center;
+  /* Center content horizontally */
+  width: 210px;
+  height: 120px;
+  padding: 1em;
+  background-color: #fffde7;
+  /* Light background */
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #182026;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Added box shadow */
+  cursor: pointer;
+}
+
+/* Hover effects */
+.link-video-tutorials a:hover {
+  background-color: #fff9c4;
+  /* Slightly darker on hover */
+  border-color: #21618C;
+  transform: scale(1.05);
+  /* Slightly enlarge the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow on hover */
+}
+
+/* Style the text within the boxes */
+.link-video-tutorials a p {
+  text-align: center;
+  font-size: 1.2em;
+  /* Increased font size */
+  margin: 0;
+  /* Remove default margins */
+  line-height: 1.4;
+  /* Adjust line height for better readability */
+  font-weight: bold;
+  /* Makes the font bold */
+}
+
+/* Adjust padding within the link */
+.link-video-tutorials a {
+  padding: 1em 0.5em;
+  /* Adjust padding to balance the text within the box */
+}
+
+/* Focus styles for accessibility */
+.link-video-tutorials a:focus {
+  outline: 5px dashed #21618C;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(33, 97, 140, 0.2);
+}
+
+
+
+/* ================================================
+   Forms
+   ================================================ */
+
+.form-group label.required::after {
+  content: " *";
+  color: red;
+}
+
+.bucket-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bucket-form form {
+  border: 1px solid #ccc;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.form-title {
+  text-align: left;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: #21618C;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+/* Apply styles to all input types except checkboxes and radio buttons */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Ensure textareas adjust their height */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Style checkboxes and radio buttons separately */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+  width: auto;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+/* Style for submit button */
+.form-group button[type="submit"] {
+  width: 100%;
+  padding: 0.75em;
+  background-color: #21618C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.form-group button[type="submit"]:hover {
+  background-color: #174a6e;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+
+/* ================================================
+     Data Table Styles
+=============================================== */
+
+/* Container */
+.data-table-container {
+  overflow-x: auto;
+  margin-bottom: 2em;
+}
+
+/* Table Layout */
+.data-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+/* Table Headers and Cells */
+.data-table-container th,
+.data-table-container td {
+  padding: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Header Styling */
+.data-table-container thead th {
+  background-color: #21618C;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+/* Remove Zebra Striping by Commenting Out or Deleting This Block */
+/*
+.data-table-container tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+*/
+
+/* Set a Uniform White Background for All Table Rows */
+.data-table-container tbody tr {
+  background-color: white;
+}
+
+/* Hover Effect (Optional) */
+.data-table-container tbody tr:hover {
+  background-color: #fffde7; /* Optional: Change to a light gray or remove if not needed */
+}
+
+/* Target the fourth column (Description) */
+.data-table-container th:nth-child(4),
+.data-table-container td:nth-child(4) {
+  width: 8%;
+  word-wrap: break-word;
+}
+
+/* Responsive Adjustments (Optional) */
+@media (max-width: 768px) {
+  .data-table-container th,
+  .data-table-container td {
+    padding: 0.5em;
+  }
+
+  .data-table-container th {
+    font-size: 0.9em;
+  }
+
+  .data-table-container td {
+    font-size: 0.85em;
+  }
+}
+
+/* ================================================
+   Video Container Section
+   ================================================ */
+
+.video-container {
+  border: 7px solid #000000;
+  padding: 1em 1.5em;
+  margin-top: 0em;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+
+.video-container h2 {
+  text-align: center;
+  color: #21618C;
+  margin-bottom: 1em;
+}
+
+.video-container .video-wrapper {
+  max-width: 1280px;
+  margin: 0 auto 1em auto;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  /* New styles for the border and visual effects */
+  border: 7px solid #21618C;
+  /* Adds a solid border with your brand color */
+  border-radius: 15px;
+  /* Rounds the corners of the border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Adds a shadow for depth */
+  background: #000;
+  /* Background color to enhance contrast */
+}
+
+.video-container .video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the video covers the container without white space */
+  border: none;
+}
+
+.video-container .important-links,
+.video-container .s3-endpoint,
+.video-container .video-section {
+  margin-bottom: 1em;
+  /* Reduced margin-bottom from 2em to 1em */
+}
+
+.video-container .important-links h3,
+.video-container .s3-endpoint h3,
+.video-container .video-section h3 {
+  text-align: center;
+  color: #21618C;
+  margin-bottom: 0.5em;
+}
+
+.video-container .important-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.video-container .important-links ul li {
+  background-color: #fffde7;
+  padding: 0.75em 1em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-container .important-links ul li a {
+  color: #21618C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.video-container .important-links ul li a:hover {
+  text-decoration: underline;
+}
+
+/* S3 Endpoint Center Alignment */
+.video-container .api-links {
+  text-align: center;
+}
+
+.video-container .api-links h4 {
+  font-size: 1em;
+  color: #18202681;
+}
+
+/* Video Grid */
+.video-container .video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  /* Reduced gap from 7em to 2em */
+}
+
+.video-container .video-grid .video-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Reduce space between paragraphs in video-item */
+.video-container .video-grid .video-item p {
+  margin: 0.2em 0;
+  /* Reduced margin */
+}
+
+.video-container .video-grid .video-card {
+  background-color: transparent;
+  padding: 0.5em;
+  border: none;
+  box-shadow: none;
+  width: auto;
+  text-align: center;
+}
+
+.video-container .video-grid .video-card a {
+  color: #21618C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.video-container .video-grid .video-card a:hover {
+  text-decoration: underline;
+}
+
+.video-container .video-section p:last-of-type {
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* Styles for the video description */
+#video-description {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #555;
+  text-align: center;
+  font-weight: bold
+}
+
+/* Horizontal list styling */
+.horizontal-list {
+  list-style-type: none;
+  /* Remove default bullets */
+  padding: 0;
+  /* Reset padding */
+  margin: 0;
+  /* Reset margin */
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows wrapping if items exceed container width */
+  justify-content: center;
+}
+
+.horizontal-list li {
+  margin: 0 30px;
+  /* Increase horizontal spacing between items */
+  position: relative;
+  /* For positioning the custom bullet */
+  padding-left: 20px;
+  /* Space for the custom bullet */
+}
+
+/* Add tick mark as bullet */
+.horizontal-list li::before {
+  content: '✓';
+  /* Unicode character for tick mark */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000000;
+  /* Adjust color as needed */
+  font-size: 1.2em;
+  /* Adjust size as needed */
+  font-weight: bold
+}
+
+/* ================================================
+     Responsive Styles
+     ================================================ */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    order: 1;
+    /* Move sidebar below content */
+  }
+
+  .content {
+    order: 0;
+    /* Content appears first */
+    padding: 1em;
+  }
+
+  .header {
+    padding: 1em;
+    font-size: 1em;
+    /* Adjusted font size */
+  }
+
+  .image-links a,
+  .image-links-workflows a,
+  .image-links-data-catalog a {
+    width: calc(50% - 2em);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .image-links a,
+  .image-links-workflows a,
+  .image-links-data-catalog a {
+    width: calc(100% - 2em);
+  }
+
+  .form-group input[type="text"],
+  .form-group select,
+  .form-group button[type="submit"] {
+    font-size: 1em;
+  }
+}

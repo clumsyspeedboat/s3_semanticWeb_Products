@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  AImotion Data Hub
+{% endblock %}
+
+{% block content %}
+  <div class="header">
+    <h1><a href="{% url 'index' %}">AImotion Data Hub</a></h1>
+  </div>
+  <div class="image-links">
+    <a href="{% url 'tools' %}">
+      <img src="{% static 'images/tools_icon.png' %}" alt="Tools" />
+      <p>Tools</p>
+    </a>
+  </div>
+
+{% endblock %}

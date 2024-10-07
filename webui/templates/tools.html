@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  S3 Storage - AImotion Data Hub
+{% endblock %}
+
+{% block content %}
+  <div class="header">
+    <h1><a href="{% url 'index' %}">AImotion Data Hub</a> / Tools</h1>
+  </div>
+
+  <!-- Display Django Messages -->
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- S3 Drop Form -->
+  <div class="bucket-form">
+    <form method="post" action="{% url 's3_drop' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2 class="form-title">S3 Drop</h2>
+
+      <div class="form-group">
+        <label for="folder_path">Optional Folder Path:</label>
+        <input type="text" id="folder_path" name="folder_path" placeholder="Enter folder path (optional)" />
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Link Expiry Duration (hours):</label>
+        <input type="number" id="duration" name="duration" min="1" max="168" step="1" value="1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="file">Select File to Upload:</label>
+        <input type="file" id="file" name="file" required />
+      </div>
+
+      <button type="submit">Upload & Generate Link</button>
+    </form>
+  </div>
+
+  <!-- List existing files in bucket -->
+  {% if object_list %}
+    <div class="file-list">
+      <h3>Files in Bucket</h3>
+      <ul>
+        {% for obj in object_list %}
+          <li>{{ obj }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <!-- Display Results -->
+  {% if file_url and qr_code %}
+    <div class="result-container">
+      <h3>File Uploaded Successfully!</h3>
+      <p>
+        <a href="{{ file_url }}" target="_blank">Access Uploaded File</a>
+      </p>
+      <h3>QR Code (Access Link):</h3>
+      <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code" />
+    </div>
+  {% endif %}
+
+  <!-- Minimal styling for form and results -->
+  <style>
+    .bucket-form,
+    .file-list,
+    .result-container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-title {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .messages .alert {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 3px;
+    }
+  </style>
+{% endblock %}

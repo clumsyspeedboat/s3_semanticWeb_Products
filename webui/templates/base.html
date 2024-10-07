@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-JNRKQNxI+lFD+3yWjMaL0VI2wJrQkDyCW1oQy3FQhxvY6cwE3KjxFeLzYsNQFqB3" crossorigin="anonymous" />
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>
+      {% block title %}
+        AImotion Data Hub
+      {% endblock %}
+    </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <a href="#">
+          <div class="white-block"></div>
+          <div class="image-container">
+            <img src="{% static 'images/aimotion_logo.png' %}" alt="Logo" onclick="window.open('https://www.thi.de/en/research/aimotion/', '_blank');" />
+          </div>
+        </a>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'tools' %}">Tools</a>
+      </div>
+
+      <div class="content">
+        {% block content %}
+          <!-- Page-specific content will be inserted here -->
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
